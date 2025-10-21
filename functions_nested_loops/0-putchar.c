@@ -2,11 +2,11 @@
 
 /**
  * main - prints _putchar followed by a new line
- * Return : 0 (Sucess) 
- * /
-int main(void) 
+ * Return: 0 (Success)
+ */
+int main(void)
 {
-    putchar ('_');
+    putchar('_');
     putchar('p');
     putchar('u');
     putchar('t');
@@ -18,3 +18,4 @@ int main(void)
 
     return (0);
 }
+
