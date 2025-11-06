@@ -1,29 +1,26 @@
 #include "main.h"
-#include <stddef.h>
+#include <stddef.h> /* Pour NULL */
 
 /**
- * _strchr - recherche un caractère dans une chaîne de caractères
- * @s: la chaîne dans laquelle on cherche
- * @c: le caractère à trouver
+ * _strchr - localise un caractère dans une chaîne de caractères
+ * @s: chaîne dans laquelle chercher
+ * @c: caractère à trouver
  *
- * Description :
- * Cette fonction parcourt la chaîne 's' caractère par caractère
- * jusqu'à trouver la première occurrence du caractère 'c'.
- * Si le caractère est trouvé, la fonction retourne un pointeur
- * vers la position de ce caractère dans la chaîne.
- * Si le caractère n'est pas trouvé, elle retourne NULL.
- *
- * Return: pointeur vers le premier caractère trouvé,
- * ou NULL si le caractère n'est pas présent.
+ * Return: un pointeur vers la première occurrence de c dans s,
+ *         ou NULL si c n'est pas trouvé
  */
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
+	while (*s)
 	{
 		if (*s == c)
 			return (s);
 		s++;
 	}
+
+	/* Vérifie si le caractère recherché est le caractère nul '\0' final */
+	if (*s == c)
+		return (s);
+
 	return (NULL);
 }
-
