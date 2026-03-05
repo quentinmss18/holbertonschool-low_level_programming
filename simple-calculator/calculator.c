@@ -1,47 +1,46 @@
 #include <stdio.h>
 
 /**
- * main - Programme de calculatrice avec boucle et validation de menu
+ * main - Programme de calculatrice avec addition
  *
  * Return: Toujours 0
  */
 int main(void)
 {
-	int choice;
+    int choice;
+    double a, b, result; /* Variables pour les calculs */
 
-	/* On peut mettre un message de bienvenue ici (Task 0) */
-	printf("Simple Calculator\n");
+    do {
+        printf("1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\nChoice: ");
+        
+        if (scanf("%d", &choice) != 1)
+            break;
 
-	do {
-		/* Affichage du menu */
-		printf("1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\n");
-		printf("Choice: ");
+        if (choice == 1)
+        {
+            /* Demande des opérandes */
+            printf("A: ");
+            scanf("%lf", &a);
+            printf("B: ");
+            scanf("%lf", &b);
 
-		/* Lecture du choix */
-		if (scanf("%d", &choice) != 1)
-		{
-			/* * Si scanf échoue (ex: l'utilisateur tape une lettre), 
-			 * on quitte la boucle pour éviter une boucle infinie.
-			 */
-			break;
-		}
+            /* Calcul et affichage */
+            result = a + b;
+            
+            /* %g est pratique : il affiche 35 au lieu de 35.000000 */
+            printf("Result: %g\n", result);
+        }
+        else if (choice == 0)
+        {
+            printf("Bye!\n");
+        }
+        /* ... autres conditions (Subtract, Multiply, Divide) ... */
+        else if (choice < 0 || choice > 4)
+        {
+            printf("Invalid choice\n");
+        }
 
-		/* Validation du choix */
-		if (choice == 0)
-		{
-			printf("Bye!\n");
-		}
-		else if (choice >= 1 && choice <= 4)
-		{
-			/* Logique des calculs à venir dans les prochaines tâches */
-		}
-		else
-		{
-			/* Message spécifique demandé pour les mauvais numéros */
-			printf("Invalid choice\n");
-		}
+    } while (choice != 0);
 
-	} while (choice != 0);
-
-	return (0);
+    return (0);
 }
