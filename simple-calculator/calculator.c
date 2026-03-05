@@ -1,49 +1,47 @@
 #include <stdio.h>
 
 /**
- * main - Point d'entrée du programme de calculatrice
- * * Return: Toujours 0 (Succès)
+ * main - Programme de calculatrice avec boucle et validation de menu
+ *
+ * Return: Toujours 0
  */
 int main(void)
 {
-    int choice;
+	int choice;
 
-    printf("Simple Calculator\n");
+	/* On peut mettre un message de bienvenue ici (Task 0) */
+	printf("Simple Calculator\n");
 
-    do {
-        /* Affichage du menu conforme à l'exemple */
-        printf("1) Add\n");
-        printf("2) Subtract\n");
-        printf("3) Multiply\n");
-        printf("4) Divide\n");
-        printf("0) Quit\n");
-        printf("Choice: ");
+	do {
+		/* Affichage du menu */
+		printf("1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\n");
+		printf("Choice: ");
 
-        /* Lecture du choix de l'utilisateur */
-        if (scanf("%d", &choice) != 1)
-        {
-            /* * Note : En cas d'entrée non-numérique, scanf échoue.
-             * Pour ce squelette, on se concentre sur le fonctionnement nominal.
-             */
-            break;
-        }
+		/* Lecture du choix */
+		if (scanf("%d", &choice) != 1)
+		{
+			/* * Si scanf échoue (ex: l'utilisateur tape une lettre), 
+			 * on quitte la boucle pour éviter une boucle infinie.
+			 */
+			break;
+		}
 
-        /* Traitement du choix */
-        if (choice == 0)
-        {
-            printf("Bye!\n");
-        }
-        else if (choice >= 1 && choice <= 4)
-        {
-            /* Ici viendront les appels aux fonctions de calcul plus tard */
-            printf("Option %d selected (Logic to be added)\n", choice);
-        }
-        else
-        {
-            printf("Invalid choice, please try again.\n");
-        }
+		/* Validation du choix */
+		if (choice == 0)
+		{
+			printf("Bye!\n");
+		}
+		else if (choice >= 1 && choice <= 4)
+		{
+			/* Logique des calculs à venir dans les prochaines tâches */
+		}
+		else
+		{
+			/* Message spécifique demandé pour les mauvais numéros */
+			printf("Invalid choice\n");
+		}
 
-    } while (choice != 0);
+	} while (choice != 0);
 
-    return (0);
+	return (0);
 }
