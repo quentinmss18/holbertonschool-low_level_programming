@@ -1,46 +1,81 @@
 #include <stdio.h>
 
 /**
- * main - Programme de calculatrice avec addition
+ * main - Programme d'une calculatrice interactive simple
  *
- * Return: Toujours 0
+ * Description: Effectue des additions, soustractions, multiplications
+ * et divisions. Gère les erreurs de division par zéro et les choix
+ * de menu invalides.
+ *
+ * Return: Toujours 0 (Succès)
  */
 int main(void)
 {
-    int choice;
-    double a, b, result; /* Variables pour les calculs */
+	int choice;
+	double a, b, result;
 
-    do {
-        printf("1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\nChoice: ");
-        
-        if (scanf("%d", &choice) != 1)
-            break;
+	printf("Simple Calculator\n");
 
-        if (choice == 1)
-        {
-            /* Demande des opérandes */
-            printf("A: ");
-            scanf("%lf", &a);
-            printf("B: ");
-            scanf("%lf", &b);
+	do {
+		/* Affichage du menu */
+		printf("1) Add\n");
+		printf("2) Subtract\n");
+		printf("3) Multiply\n");
+		printf("4) Divide\n");
+		printf("0) Quit\n");
+		printf("Choice: ");
 
-            /* Calcul et affichage */
-            result = a + b;
-            
-            /* %g est pratique : il affiche 35 au lieu de 35.000000 */
-            printf("Result: %g\n", result);
-        }
-        else if (choice == 0)
-        {
-            printf("Bye!\n");
-        }
-        /* ... autres conditions (Subtract, Multiply, Divide) ... */
-        else if (choice < 0 || choice > 4)
-        {
-            printf("Invalid choice\n");
-        }
+		/* Lecture du choix de l'utilisateur */
+		if (scanf("%d", &choice) != 1)
+		{
+			/* Sortie de secours si l'entrée n'est pas un nombre */
+			break;
+		}
 
-    } while (choice != 0);
+		/* Traitement du choix */
+		if (choice >= 1 && choice <= 4)
+		{
+			printf("A: ");
+			scanf("%lf", &a);
+			printf("B: ");
+			scanf("%lf", &b);
 
-    return (0);
+			if (choice == 1)
+			{
+				result = a + b;
+				printf("Result: %g\n", result);
+			}
+			else if (choice == 2)
+			{
+				result = a - b;
+				printf("Result: %g\n", result);
+			}
+			else if (choice == 3)
+			{
+				result = a * b;
+				printf("Result: %g\n", result);
+			}
+			else if (choice == 4)
+			{
+				if (b == 0)
+					printf("Error: division by zero\n");
+				else
+				{
+					result = a / b;
+					printf("Result: %g\n", result);
+				}
+			}
+		}
+		else if (choice == 0)
+		{
+			printf("Bye!\n");
+		}
+		else
+		{
+			printf("Invalid choice\n");
+		}
+
+	} while (choice != 0);
+
+	return (0);
 }
